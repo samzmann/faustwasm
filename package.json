@@ -14,7 +14,8 @@
     "build-esm-bundle": "node prebuild-bundled.js && esbuild src/index-bundle.ts --target=es2019 --bundle --sourcemap --loader:.wasm=binary --loader:.data=binary --outfile=dist/esm-bundle/index.js --format=esm --external:fs --external:url --external:path --external:ws && node postbuild-bundled.js",
     "build-types": "dts-bundle-generator -o dist/cjs/index.d.ts src/index.ts --external-imports",
     "build-types-bundle": "dts-bundle-generator -o dist/cjs-bundle/index.d.ts src/index-bundle.ts --external-imports",
-    "postbuild": "node postbuild.js"
+    "postbuild": "node postbuild.js",
+    "b": "rm -rf test/out && node scripts/faust2wasm.js test/sam1.dsp test/out"
   },
   "repository": {
     "type": "git",
